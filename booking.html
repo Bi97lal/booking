@@ -10,14 +10,33 @@
             margin: 0;
             padding: 0;
         }
-        
+
         body {
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Changed to column layout */
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Ensure the body covers the full viewport height */
+            margin: 0;
         }
-        
+
+        .header {
+            width: 100%; /* Make the header full width */
+            background-color: #A9C6F9;
+            color: #fff;
+            padding: 20px;
+            position: fixed; /* Fixed header at the top */
+            top: 0; /* Position at the top */
+            left: 0;
+            right: 0;
+            z-index: 1; /* Ensure it's on top of other elements */
+        }
+
+        .header img {
+            width: 180px;
+            height: auto;
+            margin-right: 10px;
+        }
+
         .box {
             width: 940px;
             height: 620px;
@@ -25,8 +44,9 @@
             border-radius: 15px;
             box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.15);
             display: flex;
+            margin-top: 63px; /* Add margin to move content below the fixed header */
         }
-        
+
         .left-half {
             flex: 1;
             background-color: #FBFBFB;
@@ -36,7 +56,7 @@
             align-items: flex-start;
             padding: 20px;
         }
-        
+
         .right-half {
             flex: 1;
             background-color: #0074D9;
@@ -77,7 +97,7 @@
             max-width: 100%;
             height: auto;
         }
-        
+
         /* Adjust form styles */
         .registration-form {
             color: #0074D9;
@@ -108,18 +128,16 @@
         .radio-group label {
             margin-right: 10px;
         }
-        .header {
-            display: flex;
-            align-items: center;
-            height: 63px;
-            background-color: #A9C6F9;
+
+        /* Style the submit button */
+        .submit-button {
+            background-color: #0074D9;
             color: #fff;
-            padding: 20px;
-        }
-        .header img {
-            width: 180px;
-            height: auto;
-            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -153,6 +171,7 @@
                     <input type="radio" id="female" name="gender" value="female" required>
                     <label for="female">Female</label>
                 </div>
+                <button type="submit" class="submit-button">Submit</button> <!-- Added Submit button -->
             </div>
         </div>
         <div class="right-half">
